@@ -1,0 +1,112 @@
+create table UserType(
+User_TypeID int,
+User_type VARCHAR(50),
+PRIMARY KEY(User_TypeID));
+
+
+create table User1(
+user_id INT NOT NULL PRIMARY KEY,
+First_Name VARCHAR(50),
+Last_Name VARCHAR(50),
+Email VARCHAR(50),
+user_name VARCHAR(50),
+Phone_Number INT,
+user_Location VARCHAR(25),
+ID_Proof VARCHAR(25),
+user_TypeID int,
+FOREIGN KEY (user_TypeID) REFERENCES UserType(User_TypeID));
+
+create table distributor(
+distributor_ID NUMBER(5) NOT NULL PRIMARY KEY,
+rate_per_unit NUMBER,
+distributor_name VARCHAR2(25)
+);
+
+	
+create table electricity_Consumption(
+Emeter_ID NUMBER(5) NOT NULL PRIMARY KEY,
+unit_consumed NUMBER,
+distributor_ID NUMBER(5),
+FOREIGN KEY (distributor_ID) REFERENCES distributor(distributor_ID));
+
+create table station(
+station_id NUMBER(5) NOT NULL PRIMARY KEY,
+station_name VARCHAR2(50),
+latitude NUMBER(5),
+longitude NUMBER(5),
+Emeter_id NUMBER(5),
+FOREIGN KEY (Emeter_ID) REFERENCES electricity_Consumption(Emeter_ID));
+
+create table bike(
+bike_ID NUMBER(5) NOT NULL PRIMARY KEY,
+purchase_year DATE,
+availablility VARCHAR2(4),
+station_id NUMBER,
+FOREIGN KEY (station_id) REFERENCES station(station_id));
+
+create table department(
+department_ID NUMBER(5) NOT NULL PRIMARY KEY,
+Department VARCHAR2(25)
+);
+
+create table employee(
+Employee_ID NUMBER(5) NOT NULL PRIMARY KEY,
+Employee_Name VARCHAR2(25),
+department_ID NUMBER(5),
+FOREIGN KEY (department_ID) REFERENCES department(department_ID));
+);
+
+create table Client_Support(
+Ticket_ID NUMBER(5) NOT NULL PRIMARY KEY,
+Message VARCHAR(100),
+Status VARCHAR(20),
+Employee_ID NUMBER,
+user_id NUMBER,
+ticket_date TIMESTAMP,
+FOREIGN KEY (Employee_ID) REFERENCES Employee(Emloyee_ID)
+FOREIGN KEY (user_id) REFERENCES USER1(user_id)
+);
+
+create table maintenance_ticket(
+maintenance_ID NUMBER(5) NOT NULL PRIMARY KEY,
+issues VARCHAR(100),
+status varchar(25),
+Employee_ID NUMBER,
+bike_ID NUMBER,
+FOREIGN KEY (Employee_ID) REFERENCES Employee(Emloyee_ID)
+FOREIGN KEY (bike_ID) REFERENCES bike(bike_ID)
+);
+
+create table transaction(
+transaction_ID NUMBER(5) NOT NULL PRIMARY KEY,
+Amount NUMBER,
+status VARCHAR(25),
+transaction_method VARCHAR(25),
+transaction_date TIMESTAMP,
+);
+create table ride(
+ride_ID NUMBER(5) NOT NULL PRIMARY KEY,
+start_time TIMESTAMP,
+end_time TIMESTAMP,
+bike_id NUMBER,
+user_id NUMBER,
+end_station_id NUMBER,
+transaction_id NUMBER,
+FOREIGN KEY (bike_id) REFERENCES Bike(bike_id),
+FOREIGN KEY (user_id) REFERENCES user1(user_ID),
+FOREIGN KEY (end_station_id) REFERENCES station(station_id),
+FOREIGN KEY (transaction_id) REFERENCES transaction(transaction_id)
+);
+
+
+create table review(
+review_ID NUMBER(5) NOT NULL PRIMARY KEY,
+rating NUMBER(1),
+message VARCHAR2(100),
+review_time TIMESTAMP,
+ride_id NUMBER(5),
+FOREIGN KEY (ride_id) REFERENCES ride(ride_id)
+);
+
+
+

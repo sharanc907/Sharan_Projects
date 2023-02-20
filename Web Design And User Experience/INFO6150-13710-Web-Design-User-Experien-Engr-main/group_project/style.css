@@ -1,0 +1,110 @@
+  /* .navbar.navbar-expand-lg.navbar-light.bg-dark li a {
+    background-color: #000000;
+    font-weight:500;
+} */
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h2{
+  color:#fff;
+  font-weight: 500 !important;
+  letter-spacing: 1px;
+  font-size: 48px !important;
+}
+
+.carousel.carousel-dark.slide {
+  width:1000;
+  height:200px;
+  margin: auto;
+}
+
+#navbarDropdown, .nav-link, .nav-item{
+color:white;
+}
+
+.card{
+  float: left;
+  width: 300px;
+}
+
+img 
+{
+   width: 300px;
+   height: 300px;
+}
+
+.btn.btn-primary {
+    background-color: #747d90;
+    border-color: #747d90;
+}
+.btn.btn-success {
+    background-color: #e4e4e4;
+    border: #7e7e7e ;
+    color:black;
+    }
+.btn.btn-outline-success{
+    border-color:#145b9c;
+    color:#145b9c;
+}
+.btn.btn-outline-success:hover{
+    background-color:#145b9c;
+    color:white;
+}
+
+.col {
+  padding-top: 30px;
+}
+
+footer{
+    background-color: #e3f2fd;
+    color: #000000;
+    font-size: .60em;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+footer a:link{
+    color: grey;
+  }
+  footer a:visited{
+    color: #000000;
+  }
+  footer a:hover{
+    color: blue;
+  }
+
+  .page-link {
+    color: black;
+  }
+  .card:hover{
+    transform: scale(1.05);
+ box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.carousel.carousel-dark.slide {
+    width: 1000px;
+    height: 500px;
+    margin: auto;
+    
+    
+}
+
+#centerBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  #search {
+    width:80%;
+  }
+   @media (min-width: 402px ) {
+    .navbar-expand-lg {
+      flex-wrap: nowrap !important; 
+      justify-content: flex-start !important;
+  }
+  }
+
